@@ -1,0 +1,52 @@
+---
+title: "LinkedList"
+categories: leetcode LinkedList
+last_modified_at: 2020-08-09
+---
+
+
+## LinkedList
+
+
+
+> lengthOfLongestSubstring
+
+
+
+
+>> [문제](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+
+
+
+
+
+>>> 내 답안
+
+```javascript
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let temp = [];
+    let maxLength = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        if (temp.includes(s[i])){
+            const index = temp.findIndex((value) => value === s[i]);
+            temp = temp.slice(index+1);
+            temp.push(s[i]);  
+        }
+        else {
+            temp.push(s[i]);
+        }
+        maxLength = Math.max(maxLength, temp.length);
+    }
+    return maxLength;
+};
+```
+
+
+***
+***
+***
