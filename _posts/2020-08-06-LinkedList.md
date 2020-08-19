@@ -12,7 +12,7 @@ last_modified_at: 2020-08-09
 ## reverseLinkedList
 
 
->[문제](>https://leetcode.com/problems/add-two-numbers/)
+>[문제](https://leetcode.com/problems/add-two-numbers/)
 
 
 
@@ -89,5 +89,71 @@ var addTwoNumbers = function(l1, l2) {
 
 
 ***
+
+
+
+## Merge Two Sorted Lists
+
+
+>[문제](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+
+
+
+### 내 답안
+```javascript
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function(l1, l2) {
+    
+    let res = new ListNode(0);
+    let head = res;
+    let value = 0;
+
+    while(l1 != null || l2 != null){
+        
+        if(l1 != null && l2 == null){
+            head.next = new ListNode(l1.val);
+            head = head.next
+            l1 = l1.next
+        }
+        if(l2 != null && l1 == null){
+            head.next = new ListNode(l2.val);
+            head = head.next
+            l2 = l2.next
+        }
+        
+        if(l1 != null && l2 != null){
+            if(l1.val<=l2.val){
+                value = l1.val;
+                l1 = l1.next;
+            }else{
+                value = l2.val;
+                l2 = l2.next;
+            }
+            
+            head.next = new ListNode(value);
+            head = head.next;
+
+        }
+        
+    }
+
+    return res.next;
+   
+    
+};
+
+```
 
  
