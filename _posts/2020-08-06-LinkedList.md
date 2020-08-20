@@ -31,7 +31,7 @@ last_modified_at: 2020-08-09
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var reverseLinkedList = Afunction(linkedlist) {
+var reverseLinkedList = function(linkedlist) {
   var node = linkedlist;
   var previous = null;
 
@@ -154,6 +154,82 @@ var mergeTwoLists = function(l1, l2) {
     
 };
 
+```
+***
+
+## Remove Nth Node From End of List
+
+
+>[문제](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+
+### 내 답안
+
+
+```javascript
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+
+var reverseLinkedList = function(linkedlist) {
+  var node = linkedlist;
+  var previous = null;
+
+  while(node) {
+    // save next or you lose it!!!
+    var save = node.next;
+    // reverse pointer
+    node.next = previous;
+    // increment previous to current node
+    previous = node;
+    // increment node to next node or null at end of list
+    node = save;
+  }
+  return previous;   // Change the list head !!!
+}
+
+
+var removeNthFromEnd = function(head, n) {
+
+    
+    head = reverseLinkedList(head);
+    let tmp = new ListNode(0);
+    let target_haed = tmp;
+    
+    if(head.next == null){
+        return null;
+    }
+    
+    if(n == 1 ){
+        return reverseLinkedList(head.next)
+    }
+    
+    
+    for(let i = 0; i<n; i++){
+        
+        target_haed.next = new ListNode(head.val);
+        target_haed = target_haed.next;
+   
+        head = head.next
+        
+        if(i==n-2){
+            target_haed.next = head.next;
+            target_haed = target_haed.next;
+            break;
+        }   
+    } 
+    return reverseLinkedList(tmp.next)
+    
+
+};
 ```
 
  
