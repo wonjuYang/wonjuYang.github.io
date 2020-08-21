@@ -231,5 +231,101 @@ var removeNthFromEnd = function(head, n) {
 
 };
 ```
+***
 
- 
+
+
+## Swap Nodes in Pairs
+
+
+>[문제](https://leetcode.com/problems/swap-nodes-in-pairs/)
+
+### 내 답안
+
+```javascript
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var swapPairs = function(head) {
+    
+    if(head == null || head.next == null) return head;
+    var prev = head;
+    var cur  = head.next;
+
+    while(prev != null && cur != null){
+        let temp = prev.val;
+        prev.val = cur.val;
+        cur.val = temp;
+
+        if(cur.next == null || cur.next.next == null) break;
+        prev = cur.next;
+        cur  = cur.next.next;     
+        
+    }   
+    return head;
+    
+};
+
+```
+
+***
+
+
+
+## Swap Nodes in Pairs
+
+
+>[문제](https://leetcode.com/problems/swap-nodes-in-pairs/)
+
+### 내 답안
+
+
+
+```javascript
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode[]} lists
+ * @return {ListNode}
+ */
+var mergeTwoLists = function(l1, l2) {
+    if (!l1) return l2;
+    if (!l2) return l1;
+    var res = new ListNode(-1);
+    var temp = res;
+    while(l1 && l2) {
+        if (l1.val < l2.val) {
+            res.next = l1;
+            l1 = l1.next;
+        } else {
+            res.next = l2;
+            l2 = l2.next;
+        }
+        res = res.next;
+    }
+    if (l1) res.next = l1;
+    if (l2) res.next = l2;
+    return temp.next;
+};
+var mergeKLists = function(lists) {
+    var result = lists[0] || null;
+    for (var i = 1; i < lists.length; i++) {
+        result = mergeTwoLists(result, lists[i]);
+    }
+    return result;
+};
+```
