@@ -26,24 +26,66 @@ last_modified_at: 2020-08-26
  * @param {number} target
  * @return {number[][]}
  */
-//Backtracking
 var combinationSum = function(candidates, target) {
-        let res=[];
-        let list=[];
-        candidates.sort((a,b)=>a-b);
-        backTrack(res,list,candidates,target,0);
-        return res;
-}
-var backTrack=function(res,list,candidates,target,start){
-        if(target>0){
-            for(let i=start; i<candidates.length && target>=candidates[i]; i++){
-                list.push(candidates[i]);
-                backTrack(res,list,candidates,target-candidates[i],i);
-                list.pop();
-            }
-        }else if(target==0){
-            res.push([...list]);
-        }
-}
+  var res = [];
+  var len = candidates.length;
+  candidates.sort((a, b) => (a - b));
+  dfs(res, [], 0, len, candidates, target);
+  return res;
+};
+
+var dfs = function (res, stack, index, len, candidates, target) {
+  var tmp = null;
+  if (target < 0) return;
+  if (target === 0) return res.push(stack);
+  for (var i = index; i < len; i++) {
+    if (candidates[i] > target) break;
+    tmp = Array.from(stack);
+    tmp.push(candidates[i]);
+    dfs(res, tmp, i, len, candidates, target - candidates[i]);
+  }
+};
 
 ```
+***
+
+
+## Combination Sum 2
+
+
+>[문제](https://leetcode.com/problems/combination-sum-ii/)
+
+
+
+### 내 답안
+
+
+```javascript
+/**
+ * @param {number[]} candidates
+ * @param {number} target
+ * @return {number[][]}
+ */
+var combinationSum2 = function(candidates, target) {
+  var res = [];
+  var len = candidates.length;
+  candidates.sort((a, b) => (a - b));
+  dfs(res, [], 0, len, candidates, target);
+  return res;
+};
+
+var dfs = function (res, stack, index, len, candidates, target) {
+  var tmp = null;
+  if (target < 0) return;
+  if (target === 0) return res.push(stack);
+  for (var i = index; i < len; i++) {
+    if (candidates[i] > target) break;
+    if (i > index && candidates[i] === candidates[i - 1]) continue;
+    tmp = Array.from(stack);
+    tmp.push(candidates[i]);
+    dfs(res, tmp, i + 1, len, candidates, target - candidates[i]);
+  }
+};
+
+```
+***
