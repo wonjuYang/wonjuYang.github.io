@@ -25,8 +25,11 @@
       {% endif %}
     </h2>
     {% include post__meta.html type=include.type %}
+    {% if post.last_modified_at %}
+    <p class="page__meta">updated : <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>{{ post.last_modified_at | date: "%B %d %Y" }}</p>
+    {% endif %}
     {% if post.date %}
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %d %Y" }}</p>
+      <p class="page__meta">published : <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %d %Y" }}</p>
     {% endif %}
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
   </article>

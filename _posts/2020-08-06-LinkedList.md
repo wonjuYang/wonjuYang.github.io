@@ -1,7 +1,8 @@
 ---
 title: "LinkedList"
 categories: leetcode LinkedList
-last_modified_at: 2020-08-09
+date: 2020-08-06
+last_modified_at: now
 ---
 
 
