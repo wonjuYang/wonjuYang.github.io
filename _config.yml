@@ -264,8 +264,8 @@ pagination:
   per_page: 5
   permalink: '/page:num/'
   limit: 0
-  sort_field: 'title'
-  sort_reverse: false
+  sort_field: 'date'
+  sort_reverse: true
 
 # HTML Compression
 # - https://jch.penibelst.de/
