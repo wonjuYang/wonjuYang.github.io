@@ -2,7 +2,7 @@
 title: "오라클 CHAR vs VARCHAR2 차이"
 categories: Oracle datatype char varchar2
 date: 2020-10-14
-last_modified_at: now
+last_modified_at: 2020-10-14
 ---
 
 
