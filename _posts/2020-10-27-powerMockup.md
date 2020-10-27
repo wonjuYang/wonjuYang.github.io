@@ -50,11 +50,11 @@ last_modified_at: 2020-10-27
 <br/><br/>
 
 ### Smart order를 위한 view페이지 1
-<img src="https://i.imgur.com/XXae6ik.png" width=500>
+<img src="https://i.imgur.com/XXae6ik.png" width=700>
 <br/><br/>
 
 ### Smart order를 위한 view페이지 2
-<img src="https://i.imgur.com/mXPA6wP.png" width=500>
+<img src="https://i.imgur.com/mXPA6wP.png" width=700>
 <br/><br/><br/><br/>
 
 ## 지금은 trial 버전이지만 만약 정식 라이센스를 구입하면 정말 좋은 유틸이 될 수 있을 것 같다! 
