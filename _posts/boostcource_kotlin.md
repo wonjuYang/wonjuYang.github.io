@@ -225,7 +225,12 @@ fun main() {
 <br/>
 
 
-## Null을 허용한 변수 검사
+## 2. Null을 허용한 변수 검사
+
+
+<br/>
+<br/>
+
 
 - 코틀린의 변수 선언은 기본적으로 null을 허용하지 않는다
 - val a: Int, var b: String -> X 꼭 초기화 해줘야함
