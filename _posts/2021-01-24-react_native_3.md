@@ -141,13 +141,6 @@ const styles = StyleSheet.create({
 
 <br/>
 
-# 성공!!
-
-<img src="https://i.imgur.com/DZRwyw3.png" width=500>
-
-<br/><br/><br/>
-
-
 ## 주요 개념 
 ### TouchableOpacity!
 ### justifyContent, alignItems, alignSelf
