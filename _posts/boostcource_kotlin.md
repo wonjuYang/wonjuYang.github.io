@@ -5,27 +5,274 @@ published: false
 ---
 
 
---------------오리엔테이션-----------------
 
-# 강의 커리큘럼 설명
+# 변수와 자료형, 연산자
 
-## 1. 코틀린 프로그래밍 기본 - 함수형편
+## 1. 변수
 
-### 코틀린이란 ?
-- 구글에서 지정한 안드로이드 공식 언어
-- 자바와 100% 호환성! 라이브러리를 그대로
-- 기본적으로 JVM상에서 동작 시키지만 다양한 플랫폼에서도 실행 가능
-- 함수형 프로그래밍 기법인 람다식, 고차함수를 제공하면서 코드의 축약 및 최적화 가능
-- 객체지향 프로그래밍 기법도 같이 제공하는 멀티 패러다임 언어!
-- 생산성이 매우 높은 언어!
+### 자료형
+- Int 정수 1, 2, 3
+- String 문자열 "Hello123" 일종의 배열 특수한 자료형
+- Float 실수 1.2 
+
+### 변수
+- val (value) - 불변형 (immutable)
+- var (variable) - 가변형 (mutable)
 
 
-## 2. 코틀린 프로그래밍 기본 - 객체지향 편
+### ex ) val username: String = "Kildong"
 
-- 클래스, 객체, 인터페이스 
-- 제네릭
-- 배열과 컬렉션
-- 다양한 클래스 기법
+```java
+
+fun main(){
+
+    val username: String = "Kildong"
+    // username = "Dooly" 불변형이라 바꿀 수 없음
+
+    var username2: String = "Kildong"
+    username2 = "dooly" //var이라 가능
+
+
+
+    println("username : ${username}")
+    println("username : ${username2}")
+
+
+    // 이런식으로 추론형으로 쓸 수도 있다
+    // ctrl + shift + p 로 확인 가능
+    var username3 = "kildong"
+    var count = 3;
+
+    println("username: $username, count $count")
+
+
+
+}
+```
+
+### 변수 선언의 예
+- val username = "Kildong"  -> 자료형을 추론하여 String으로 결정
+- var username: -> 자료형을 지정하지 않은 변수는 사용할 수 없다
+- val init: Int -> 사용 전 혹은 생성자 시점에서 init변수를 초기화 해야함
+- val number = 10 ->  number 변수는 Int형으로 추론
+
+
+###  cf) 변수명은 예약어 x 숫자시작 x 이왕이면 카멜 표기법으로!
+
+### 카멜 표기법
+1. 일반 변수, 함수명 -> 소문자 시작 첫 단어는 대문자 ex) camelCase
+2. 클래스, 인터페이스 -> 대문자 시작 첫 단어는 대문자 ex) AnimalCategory
+
+
+<br/><br/>
+
+
+## 2. 자료형
+
+### 기본형
+- 가공되지 않은 순수한 자료형으로 프로그래밍 언어에 내장
+- int, long, float, double
+
+
+### 참조형
+- 동적 공간에 데이터를 둔 다음 이것을 참조하는 자료형
+- ex) Int, Long, Float, Double 등
+
+
+
+### cf) 코틀린에서는 참조형을 통해서만 데이터를 다룬다
+
+### 기본형은 메모리에 값이 참조형은 메모리에 주소가 들어간다
+
+<br/>
+
+
+### 1. 정수형 
+- Long 8바이트
+- Int 4바이트
+- Short 2바이트
+- Byte 1바이트
+- 부호가 없는 것은 U를 붙여서 양수만 표현 (두배로 가능)
+- 기본으로는 Int로 추론 됨, 값이 커지면 Long으로 추론
+- 접미사 접두사를 사용하면 ex) 0x->16진 표기가 된 Int 123L-> Long형
+- 명시적으로 자료형을 지정해도 됨
+- 큰 수를 읽기 쉽게 하는 방법 : val number = 1_000_000 언더바 넣기
+
+<br/>
+
+### 2. 실수형
+- Double 8바이트
+- Float 4바이트
+- 마지막에 F를 붙이면 Float 아니면 double형이 기본
+
+### Cf) 부동소수점
+[ 부동 소수점 참고 블로그 ](https://www.secmem.org/blog/2020/05/15/float/)
+
+
+<br/><br/>
+
+
+```java
+
+fun main() {
+    var num: Double = 0.1
+
+    for(x in 0..999){
+
+        num += 0.1
+    }
+
+    println("num: $num")
+
+
+    // 100이 나와야 되는데
+    // num: 100.09999999999859
+    // 뒤에 이상한 숫자가 붙는다 -> 공간 제약에 따른 부동 소수점 연산의 단점
+}
+```
+
+
+### cf) 각 자료형 별 최소 최대
+
+```java
+
+
+fun main() {
+    println("Int: ${Int.MIN_VALUE}~${Int.MAX_VALUE}")
+    println("Byte: ${Byte.MIN_VALUE}~${Byte.MAX_VALUE}")
+    println("Short: ${Short.MIN_VALUE}~${Short.MAX_VALUE}")
+    println("Long: ${Long.MIN_VALUE}~${Long.MAX_VALUE}")
+    println("Float: ${Float.MIN_VALUE}~${Float.MAX_VALUE}")
+    println("Double: ${Double.MIN_VALUE}~${Double.MAX_VALUE}")
+
+    //Int: -2147483648~2147483647
+    //Byte: -128~127
+    //Short: -32768~32767
+    //Long: -9223372036854775808~9223372036854775807
+    //Float: 1.4E-45~3.4028235E38
+    //Double: 4.9E-324~1.7976931348623157E308
+
+}
+```
+
+### cf) 2의 보수 
+- 음수는 2의 보수 표현을 사용해 연산됨
+- 절대값의 이진수에 값을 뒤집고 1을 더함
+
+
+<br/>
+<br/>
+
+### 3. 논리형
+- Boolean 1비트 true or false
+- ex) val isUploaded: Boolean
+
+<br/><br/>
+
+### 4. 문자형
+- Char 2바이트 
+
+
+<br/><br/>
+
+
+### 5. 문자열 (String)
+- String으로 선언되며 배열로 처리된다
+- 값을 변경하면 새로운 공간에 만들어진다
+- ==는 값만 비교 ===는 참조까지 비교
+
+```java
+
+
+fun main() {
+    var str1: String = "Hello"
+    var str2 = "World"
+    var str3 = "Hello"
+
+    println("str1 === str2 ${str1 === str2}")
+    println("str1 === str3 ${str1 === str3}") //변수 이름만 다르고 같은 공간을 가르키고 있기 때문에 true
+}
+
+
+
+```
+
+
+<br/>
+<br/>
+
+### cf) 표현식에서 문자열
+
+```java
+
+
+fun main() {
+    var a = 1
+    val str1 = "a = $a"
+    val str2 = "a = ${a+2}" //문자열에 표현식 사용
+
+    println("str1: \"$str1\", str2: \"$str2\"")
+
+
+    //str1: "a = 1", str2: "a = 3"
+
+}
+```
+
+
+<br/>
+<br/><br/>
+<br/>
+
+
+## Null을 허용한 변수 검사
+
+- 코틀린의 변수 선언은 기본적으로 null을 허용하지 않는다
+- val a: Int, var b: String -> X 꼭 초기화 해줘야함
+- val a: Int? = null, var b: String? = null -> O 가능함
+- NPE(NullPointerException) : 사용할 수 없는 null인 변수에 접근하면서 발생하는 예외
+
+
+```java
+
+
+fun main() {
+
+    var str1: String
+    //str1 = null // 기본형은 null을 허용하지 않는다
+    // println(str1) <<오류 반드시 initialize 해야한다
+
+    var str2: String?
+    str2 = null
+    //println("str2: $str2, length: ${str2.length}) <<Null일 가능성이 있기때문에 점 찍고 접근할수 없다
+    println("str2: $str2, length: ${str2?.length}") // null을 확인하는 ?를 삽입 -> safecall
+    // println("str2: $str2, length: ${str2!!.length}") // null일리가 없다 !! null이면 문제가 발생한다
+
+    // var len = if (str2 != null) str2.length else -1
+
+    //위의 식을 elvis expression으로 바꾸면 이렇게 된다
+    // length가 null이 아니면 length 들어가고 null이면 -1 
+    var len = str2?.length ?: -1
+
+    println("str2: $str2, length: $len")
+
+
+}
+```
+
+<br/>
+<br/>
+
+
+### 정리
+- Kotlin에서는 기본적으로 NotNull이고 Nullable 표현에만 '?'가 사용된다
+- 세이프 콜 str1?.length
+- non-null 단정 기호 str1!!.length 사용하지 않는 것이 낫다
+- elvis 연산자를 이용하면 더 짧게 표현 가능
+
+
+
+
 
 
 ## 3. 코틀린 프로그래밍 응용 안드로이드 편

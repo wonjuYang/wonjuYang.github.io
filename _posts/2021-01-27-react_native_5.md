@@ -33,7 +33,7 @@ last_modified_at: 2021-01-27
 <br/>
 리액트는 State와 Props라는 객체를 사용하여 화면에 표시되는 가변적인 값을 관리함<br/>
 
-### stat와 props의 특징
+### state와 props의 특징
 1. Props 혹은 State의 값 변경이 감지될 때마다 render()가 수행된다
 2. State에는 현재 컴포넌트의 화면을 그리는 것과 관련된 대다수의 값들을 담는다.
 3. 데이터의 흐르미은 상위 컴포넌트에서 하위 컴포넌트로 단방향이다
@@ -87,6 +87,11 @@ elements.map(element => {
 
 ```
 > [ 화살표 함수 ](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
+
+
+<br/><br/>
+
+# 설정 Modal 만들기
 
 
 <br/><br/>
