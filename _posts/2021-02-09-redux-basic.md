@@ -1,11 +1,14 @@
 ---
-layout: post
-title: redux
-published: false
+title: "리덕스 기초 CRUD by 생활코딩"
+categories: boostcourse kotlin
+date: 2021-02-09
+last_modified_at: 2021-02-09
 ---
 
 
-
+<br/>
+<br/>
+<br/>
 
 
 # Redux : A predictable state container for Javascript App
